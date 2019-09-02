@@ -58,11 +58,7 @@ expensesItemBtn.addEventListener('click', function(){
     expensesValue.textContent = sum;
 });
 
-chooseIncome.addEventListener('input', function(){
-    let items = chooseIncome.value;
-    appData.income = items.split(', ');
-    incomeValue.textContent = appData.income;
-});
+
 optionalExpensesBtn.addEventListener('click', function(){
     for(let i = 0; i < optionalExpensesItem.length; i++){
         let opt = optionalExpensesItem[i].value;   
@@ -88,10 +84,22 @@ countBudgetBtn.addEventListener('click', function(){
         }
     }else{
         dayBudgetValue.textContent = 'Произошла ошибка'
-    }
+    }    
+});
 
-    
-})
+chooseIncome.addEventListener('input', function(){ //method input or change
+    let items = chooseIncome.value;
+    appData.income = items.split(', ');
+    incomeValue.textContent = appData.income;
+});
+
+savings.addEventListener('click', function(){
+    if (appData.savings == true){
+        appData.savings = false;
+    }else{
+        appData.savings = true;
+    }
+});
 
 let appData={
     budget: money,
@@ -99,7 +107,7 @@ let appData={
     optionalExpenses:{},
     income:[],
     timeData: time,
-    saving: true,
+    saving: false,
     detectDayBudget: function(){
         
         alert('Ежедневный бюджет: ' + appData.moneyPerDay);
