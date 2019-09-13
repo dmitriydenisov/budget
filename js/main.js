@@ -43,20 +43,22 @@ start.addEventListener('click', function() {
 });
 
 
-expensesItemBtn.addEventListener('click', function(){
-    disabled = true;
-    let sum = 0;
-    for(let i = 0; i < expensesItem.length; i++){
-        let a = expensesItem[i].value,
-            b = expensesItem[++i].value;
-    
-        if(typeof(a) === 'string' && (typeof(a)) != null && (typeof(b)) != null && a != '' && b != '' && a.length < 50){
-            appData.expenses[a] = b;
-            sum += +b;
+
+    expensesItemBtn.addEventListener('click', function(){
+        console.log("jjj")
+        let sum = 0;
+        for(let i = 0; i < expensesItem.length; i++){
+            let a = expensesItem[i].value,
+                b = expensesItem[++i].value;
+        
+            if(typeof(a) === 'string' && (typeof(a)) != null && (typeof(b)) != null && a != '' && b != '' && a.length < 50){
+                appData.expenses[a] = b;
+                sum += +b;
+            }
         }
-    }
-    expensesValue.textContent = sum;
-});
+        expensesValue.textContent = sum;
+    });
+
 
 
 optionalExpensesBtn.addEventListener('click', function(){
