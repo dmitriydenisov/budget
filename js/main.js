@@ -45,7 +45,6 @@ start.addEventListener('click', function() {
 
 
     expensesItemBtn.addEventListener('click', function(){
-        console.log("jjj")
         let sum = 0;
         for(let i = 0; i < expensesItem.length; i++){
             let a = expensesItem[i].value,
